@@ -2,10 +2,16 @@
 #include <string>
 #include <curl/curl.h>
 
+std::string token = "7682687913:AAEjim7QPVZfR0gYg255IIlrt5tcDthvLRk";
+std::string chat_id = "7346630970";
+
+size_t WriteCallback(void *contents, size_t size, size_t nmemb, std::string *output) {
+    output->append((char *)contents, size * nmemb);
+    return size * nmemb;
+}
+
 int main() {
 
-    std::string token = "7682687913:AAEjim7QPVZfR0gYg255IIlrt5tcDthvLRk";
-    std::string chat_id = "7346630970";
     std::string mensagem = "A mensagem é essa. Coloque a variavel aqui!";
 
 
